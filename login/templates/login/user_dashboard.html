@@ -1,0 +1,37 @@
+{% extends "login/layout.html" %}
+
+{% load static %}
+
+{% block title %}<title>Home page</title>{% endblock %}
+
+{% block body%}
+
+    <h1>homepage</h1>
+
+    <nav class="navbar">
+
+
+        <ul class="nav-links">
+            <li><a href="{% url 'index' %}">Home</a></li>
+            <li><a href="">Evalute</a></li>
+            <li><a href="">Output</a></li>
+            <li><a href="">Certicate</a></li>
+            {% if user.is_authenticated %}
+
+            <li>{{user.username}}</li>
+   
+
+        {% else %}
+            <li><a href="{% url 'login' %}">Login</a></li>
+
+        {% endif %}
+       
+        </ul>
+
+    </nav>
+
+    <div><a href="{% url 'logout' %}">Logout</a></div>
+
+
+
+{% endblock %}
